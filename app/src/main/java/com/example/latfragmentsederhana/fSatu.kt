@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -55,5 +56,32 @@ class fSatu : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val _btnOpenFSatu = view.findViewById<Button>(R.id.btnOpenFSatu)
+
+        _btnOpenFSatu.setOnClickListener {
+            val fragmentManager = parentFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+
+            val fragmentDua = fDua()
+
+            fragmentTransaction.replace(
+                R.id.fragmentContainerView,
+                fragmentDua
+            )
+            fragmentTransaction.commit()
+        }
+
+        val fragmentDua = fDua()
+        val dataKirim = Bundle().apply{
+            putString("Nama","Andi")
+            putString("Alamat","Siwalankerto")
+        }
+        fragmentDua.arguments = dataKirim
+
     }
 }
