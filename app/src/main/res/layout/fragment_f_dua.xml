@@ -5,12 +5,31 @@
     android:layout_height="match_parent"
     tools:context=".fDua"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="#FEE2AD"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/tvJudul"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:text="Fragment fDua"
+        android:gravity="center"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvHasil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Data dari Fragment 1"
+        android:gravity="center"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/btnOpenFDua"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Buka Fragment 1"
+        android:layout_marginTop="16dp" />
 
 </LinearLayout>
