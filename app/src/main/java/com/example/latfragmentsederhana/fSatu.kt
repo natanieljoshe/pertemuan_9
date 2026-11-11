@@ -14,7 +14,7 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [fSatu.newInstance] factory method to
+ * Use the [newInstance] factory method to
  * create an instance of this fragment.
  */
 class fSatu : Fragment() {
@@ -64,10 +64,15 @@ class fSatu : Fragment() {
         val _btnOpenFSatu = view.findViewById<Button>(R.id.btnOpenFSatu)
 
         _btnOpenFSatu.setOnClickListener {
+            val fragmentDua = fDua()
+            val dataKirim = Bundle().apply {
+                putString("Nama", "Andi")
+                putString("Alamat", "Siwalankerto")
+            }
+            fragmentDua.arguments = dataKirim
+
             val fragmentManager = parentFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
-
-            val fragmentDua = fDua()
 
             fragmentTransaction.replace(
                 R.id.fragmentContainerView,
@@ -75,13 +80,5 @@ class fSatu : Fragment() {
             )
             fragmentTransaction.commit()
         }
-
-        val fragmentDua = fDua()
-        val dataKirim = Bundle().apply{
-            putString("Nama","Andi")
-            putString("Alamat","Siwalankerto")
-        }
-        fragmentDua.arguments = dataKirim
-
     }
 }
